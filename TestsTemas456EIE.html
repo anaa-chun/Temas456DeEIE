@@ -1,0 +1,716 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tests EIE Temas 4, 5 y 6</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="19bc1017-243e-8064-b7fd-e107deb3ae4c" class="page serif"><header><h1 class="page-title">Tests EIE Temas 4, 5 y 6</h1><p class="page-description"></p></header><div class="page-body"><h2 id="19bc1017-243e-80c4-8475-c6860194101f" class=""><mark class="highlight-red"><mark class="highlight-red_background"><strong>TEMA 4 - GESTIÓN DEL MARKETING Y DE LOS RRHH</strong></mark></mark></h2><ol type="1" id="19bc1017-243e-8065-8fcd-dbf976e61b0d" class="numbered-list" start="1"><li><mark class="highlight-blue"><mark class="highlight-default_background"><strong>¿Cuál es el objetivo principal del marketing?</strong></mark></mark><p id="19bc1017-243e-80f4-ad19-df9706a8e8ad" class="">a) Crear un producto atractivo sin importar el cliente</p><p id="19bc1017-243e-8027-bcac-f3d495cb81e9" class="">b) Incrementar las ventas mediante estrategias de publicidad agresivas</p><p id="19bc1017-243e-8026-aba4-e4ec63054ebe" class=""><strong>c) Identificar las necesidades del público y satisfacerlas eficientemente ✅</strong></p><p id="19bc1017-243e-8091-88cb-dc61289a8109" class="">d) Garantizar que el producto sea más barato que la competencia</p><p id="19bc1017-243e-80dc-b945-ed751922a379" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80cc-a550-c76ea4eeb09b" class="numbered-list" start="2"><li><mark class="highlight-blue"><strong>¿Cuál es la diferencia entre el marketing tradicional y el marketing actual?</strong></mark><p id="19bc1017-243e-802d-996d-cb53f975c3ec" class="">a) El tradicional se enfoca en la empresa, el actual en el cliente ✅</p><p id="19bc1017-243e-803b-a701-ebcc4d831cc0" class="">b) No hay diferencia</p><p id="19bc1017-243e-804d-8396-e2cb6e6965a8" class="">c) El actual ignora la publicidad</p><p id="19bc1017-243e-80ce-b124-e11c44ce81e6" class="">d) El tradicional es solo digital</p><p id="19bc1017-243e-8053-8713-c3b017c247a8" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8098-b542-c157de4075eb" class="numbered-list" start="3"><li><mark class="highlight-blue"><mark class="highlight-default_background"><strong>¿Qué significa el marketing mix o 4P?</strong></mark></mark><p id="19bc1017-243e-80ac-a452-d45fe90c6313" class="">a) Producto, Precio, Producción, Publicidad</p><p id="19bc1017-243e-80e2-b357-e9ce953fe4a1" class=""><strong>b) Producto, Precio, Promoción, Distribución ✅</strong></p><p id="19bc1017-243e-807c-a556-ee7a6053d35c" class="">c) Publicidad, Precio, Producto, Posicionamiento</p><p id="19bc1017-243e-80a1-a1df-e7fa0887de33" class="">d) Producto, Planificación, Publicidad, Precio</p><p id="19bc1017-243e-80f2-bc45-fe536251cda2" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80e9-8f38-d85fbd3bd807" class="numbered-list" start="4"><li><mark class="highlight-blue"><strong>¿Qué elemento NO pertenece al marketing 4C?</strong></mark><p id="19bc1017-243e-80ab-80d4-f03638699e76" class="">a) Cliente</p><p id="19bc1017-243e-803e-ad49-f8aab0122604" class=""><strong>b) Competencia ✅</strong></p><p id="19bc1017-243e-8063-b7b2-f54d620bb5bc" class="">c) Coste</p><p id="19bc1017-243e-80c4-a3be-cdf03b103c3c" class="">d) Conveniencia</p><p id="19bc1017-243e-80c6-a368-c5aad48dc5d5" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-805c-898a-fe6bcbddc25c" class="numbered-list" start="5"><li><mark class="highlight-blue"><strong>¿Qué es el marketing relacional?</strong></mark><p id="19bc1017-243e-8076-8dda-e58881f24dbc" class=""><strong>a) Estrategia para fidelizar clientes y generar relaciones a largo plazo ✅</strong></p><p id="19bc1017-243e-80c1-af20-ca85300e8f03" class="">b) Publicidad masiva en televisión</p><p id="19bc1017-243e-8039-80e9-cda6bc39480b" class="">c) Un método para reducir costos</p><p id="19bc1017-243e-8009-bb76-f1f585595d2b" class="">d) Estrategia para reducir la competencia</p><p id="19bc1017-243e-80df-8278-d51882adae02" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8018-a91c-c18e01f138f8" class="numbered-list" start="6"><li><mark class="highlight-blue"><strong>¿Qué es el marketing de afiliación?</strong></mark><p id="19bc1017-243e-80d9-bad3-f89f54fd3896" class="">a) Fidelización de clientes mediante descuentos</p><p id="19bc1017-243e-8066-830a-cacf2819c795" class="">b) Crear anuncios en redes sociales</p><p id="19bc1017-243e-80a3-9c6a-fe5481ce4135" class=""><strong>c) Permitir que terceros promocionen un producto a cambio de comisiones ✅</strong></p><p id="19bc1017-243e-809b-8844-fde26a155f2f" class="">d) Una estrategia para comprar empresas rivales</p><p id="19bc1017-243e-8068-8fee-c92108dffdaf" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8020-b4e1-e54b76873f1c" class="numbered-list" start="7"><li><mark class="highlight-blue"><strong>¿Qué técnica de marketing usa olores para atraer clientes?</strong></mark><p id="19bc1017-243e-806b-beec-ccf778dd9f50" class="">a) Marketing digital</p><p id="19bc1017-243e-8049-8fd8-dc544a31e5f4" class="">b) Marketing de guerrilla</p><p id="19bc1017-243e-8060-97e6-cc16fcf99163" class=""><strong>c) Marketing olfativo ✅</strong></p><p id="19bc1017-243e-807e-84c5-d1bd9e282cbd" class="">d) Marketing viral</p><p id="19bc1017-243e-8042-ac86-c50db3ef28e4" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8063-8962-da9c4cbf1c13" class="numbered-list" start="8"><li><mark class="highlight-blue"><strong>¿Qué es el marketing de guerrilla?</strong></mark><p id="19bc1017-243e-80b9-b705-e90708f927f4" class=""><strong>a) Estrategias creativas y poco convencionales para diferenciarse ✅</strong></p><p id="19bc1017-243e-80f0-9376-de64790a4837" class="">b) Marketing basado en descuentos</p><p id="19bc1017-243e-8095-b165-fd9601eacf15" class="">c) Estrategia de email marketing</p><p id="19bc1017-243e-806d-827d-e25de9ec0794" class="">d) Crear anuncios en redes sociales</p><p id="19bc1017-243e-8086-929f-ffcdb25ac7bc" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-804b-9b89-e7624a980a02" class="numbered-list" start="9"><li><mark class="highlight-blue"><strong>¿Cuál es la principal diferencia entre el marketing 1.0 y el marketing 3.0?</strong></mark><p id="19bc1017-243e-809f-907f-df7c0a6ae22a" class="">a) El 1.0 se basa en la tecnología y el 3.0 en la calidad</p><p id="19bc1017-243e-800c-827f-c07021eb9eb9" class=""><strong>b) El 1.0 es masivo e indiferenciado, el 3.0 es más interactivo y centrado en el cliente ✅</strong></p><p id="19bc1017-243e-80eb-8f52-cf1c3ea2aa21" class="">c) No hay diferencia</p><p id="19bc1017-243e-803b-ab05-d161d2202fa3" class="">d) El 3.0 solo usa medios tradicionales</p><p id="19bc1017-243e-800d-921f-c4245e80132b" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8074-993f-d486a7db02ab" class="numbered-list" start="10"><li><mark class="highlight-blue"><strong>¿Qué hace el marketing B2B?</strong></mark><p id="19bc1017-243e-8082-9448-daf388ce2c2b" class=""><strong>a) Estrategias comerciales dirigidas a otras empresas ✅</strong></p><p id="19bc1017-243e-801f-82a1-d082029813ad" class="">b) Campañas dirigidas a consumidores</p><p id="19bc1017-243e-80b7-85d5-e294292a786c" class="">c) Promoción de productos gratuitos</p><p id="19bc1017-243e-80e0-ba84-dabd32783d73" class="">d) Publicidad en redes sociales</p><p id="19bc1017-243e-8013-bd4d-cd0a5d6bbef0" class="">
+</p></li></ol><hr id="19bc1017-243e-8071-a267-f2927ad5adba"/><p id="19bc1017-243e-80cb-b39b-e9c649ac925d" class="">
+</p><h2 id="19bc1017-243e-8085-b95f-d24ef6036639" class=""><mark class="highlight-red"><mark class="highlight-red_background"><strong>TEMA 5 - FUENTES DE FINANCIACIÓN</strong></mark></mark></h2><ol type="1" id="19bc1017-243e-8093-bb74-fcf784938c47" class="numbered-list" start="1"><li><mark class="highlight-blue"><strong>¿Qué es una fuente de financiación?</strong></mark><p id="19bc1017-243e-8094-92e3-db96676af094" class=""><strong>a) Recursos económicos que permiten a la empresa operar ✅</strong></p><p id="19bc1017-243e-808b-95ec-f146de35d353" class="">b) Métodos para pagar menos impuestos</p><p id="19bc1017-243e-80e4-8ce7-cef470b21e74" class="">c) Un plan de ventas</p><p id="19bc1017-243e-80f1-aecd-fe8c1d6276ca" class="">d) El dinero generado por las redes sociales</p><p id="19bc1017-243e-801f-97ae-c1dafa41f15a" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80e3-ad58-e4bd813c537e" class="numbered-list" start="2"><li><mark class="highlight-blue"><strong>¿Cuál de las siguientes NO es una fuente de financiación propia?</strong></mark><p id="19bc1017-243e-8011-8938-c59b40993351" class="">a) Ampliaciones de capital</p><p id="19bc1017-243e-80c4-94bd-dc76c9c66093" class=""><strong>b) Préstamos bancarios ✅</strong></p><p id="19bc1017-243e-8032-81f1-d8bbbc1858da" class="">c) Subvenciones</p><p id="19bc1017-243e-8044-b6e5-d9acc1900551" class="">d) Beneficios no repartidos</p><p id="19bc1017-243e-803d-afff-f601c5d5be42" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8058-a248-cd7c67454a7d" class="numbered-list" start="3"><li><mark class="highlight-blue"><strong>¿Qué significa &quot;las 3F&quot; en financiación?</strong></mark><p id="19bc1017-243e-8007-92d3-ec8fb6db3370" class="">a) Friends, Followers, Fundraising</p><p id="19bc1017-243e-801c-a66f-ec92c6ea68ef" class=""><strong>b) Family, Friends, Fools ✅</strong></p><p id="19bc1017-243e-802b-8c87-ece5800885c8" class="">c) Funding, Finance, Funds</p><p id="19bc1017-243e-8081-aeab-d37b925d11ad" class="">d) Facebook, Funding, Fortune</p><p id="19bc1017-243e-8006-818f-d1f7884c55fa" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8065-9d03-f5eba664ce97" class="numbered-list" start="4"><li><mark class="highlight-blue"><strong>¿Qué es un Business Angel?</strong></mark><p id="19bc1017-243e-8076-81ea-f8a42cbe6151" class="">a) Un banco especializado en startups</p><p id="19bc1017-243e-80a7-86a0-fb990ff31ac4" class="">b) Un método de pago digital</p><p id="19bc1017-243e-80b0-aaef-e63c4e426060" class=""><strong>c) Un inversor que aporta capital y asesoría a startups ✅</strong></p><p id="19bc1017-243e-8033-b649-f9174ef7bcdf" class="">d) Un prestamista tradicional</p><p id="19bc1017-243e-8092-8ba8-ef137aea22d5" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-804a-9486-c45f7bf22c14" class="numbered-list" start="5"><li><mark class="highlight-blue"><strong>¿Qué es el crowdfunding?</strong></mark><p id="19bc1017-243e-8037-b180-e7ae970f1e28" class="">a) Un préstamo bancario</p><p id="19bc1017-243e-80df-a321-e5fd925c7978" class=""><strong>b) Financiación colectiva donde varias personas aportan dinero a un proyecto ✅</strong></p><p id="19bc1017-243e-8093-8fab-f591c0d2c620" class="">c) Un programa del gobierno para emprendedores</p><p id="19bc1017-243e-8071-8f3f-f1a70c45bcde" class="">d) Un sistema de inversión exclusivo para grandes empresas</p><p id="19bc1017-243e-8065-8b79-f10885bd6946" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80b6-9527-df6298972b4a" class="numbered-list" start="6"><li><mark class="highlight-blue"><strong>¿Qué es una ampliación de capital?</strong></mark><p id="19bc1017-243e-8022-b5d7-c6652f47f7e3" class=""><strong>a) Entrada de nuevos socios o más inversión de los actuales ✅</strong></p><p id="19bc1017-243e-80b1-9531-d40d71752421" class="">b) Venta de activos de la empresa</p><p id="19bc1017-243e-8069-8db7-ebe39d53d8b1" class="">c) Reducción de costes operativos</p><p id="19bc1017-243e-80a7-a472-ec3c771127c2" class="">d) Una estrategia de marketing</p><p id="19bc1017-243e-80e8-be9d-f8c6ef4483bb" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-805a-a2b5-f91f2d1f090b" class="numbered-list" start="7"><li><mark class="highlight-blue"><strong>¿Cuál es la principal diferencia entre renting y leasing?</strong></mark><p id="19bc1017-243e-808c-a435-d5deb35bc00b" class="">a) En el renting se puede comprar el bien al final del contrato, en el leasing no</p><p id="19bc1017-243e-80a5-83ec-e075bb437ce2" class=""><strong>b) El renting incluye mantenimiento y el leasing tiene opción de compra ✅</strong></p><p id="19bc1017-243e-803b-96a7-eb301426cf2c" class="">c) El leasing es más barato que el renting</p><p id="19bc1017-243e-8086-a2e5-f0cd47319301" class="">d) No hay diferencias</p><p id="19bc1017-243e-802c-82f2-dcb0c1161b76" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8035-95d0-f2cada0f9ca9" class="numbered-list" start="8"><li><mark class="highlight-blue"><strong>¿Qué es una subvención?</strong></mark><p id="19bc1017-243e-8031-aca7-c276af1b238b" class="">a) Un préstamo bancario</p><p id="19bc1017-243e-80c9-beed-e4a7fa4b0d8d" class=""><strong>b) Un aporte económico de la Administración que no se devuelve ✅</strong></p><p id="19bc1017-243e-8072-b39d-c7cf3e1a1227" class="">c) Un impuesto</p><p id="19bc1017-243e-8025-9b0e-cf3dde7d8ed5" class="">d) Un método de inversión privada</p><p id="19bc1017-243e-8091-ae2b-dd0d49be869f" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80d1-bb61-cff2ce272a73" class="numbered-list" start="9"><li><mark class="highlight-blue"><strong>¿Cuál de las siguientes opciones es financiación a largo plazo?</strong></mark><p id="19bc1017-243e-8035-b4f6-e4613b780959" class="">a) Factoring</p><p id="19bc1017-243e-80a8-ab3c-e5e680a253fb" class="">b) Descuento de pagarés</p><p id="19bc1017-243e-80d1-bd6d-ef3819d3b93a" class=""><strong>c) Préstamos bancarios ✅</strong></p><p id="19bc1017-243e-8094-a77a-c5f5116b440d" class="">d) Créditos comerciales</p><p id="19bc1017-243e-8068-a59e-db0e6b0d147d" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8088-9dc9-d2b0c334eb35" class="numbered-list" start="10"><li><mark class="highlight-blue"><strong>¿Qué es el factoring?</strong></mark><p id="19bc1017-243e-8069-895a-d852f643b33d" class="">a) Un préstamo bancario</p><p id="19bc1017-243e-8092-b815-e464c55e550e" class=""><strong>b) Un contrato donde una empresa vende sus facturas pendientes de cobro a otra empresa ✅</strong></p><p id="19bc1017-243e-803f-a4cf-f1274ab6915e" class="">c) Una inversión en bolsa</p><p id="19bc1017-243e-80ef-bbaf-fbb741d90b10" class="">d) Un sistema de crowdfunding</p><p id="19bc1017-243e-8027-80f9-f7f702fe07cb" class="">
+</p></li></ol><hr id="19bc1017-243e-80b8-9d1a-c79131a58bc4"/><p id="19bc1017-243e-80a1-b147-fa9e682cf0fb" class="">
+</p><h2 id="19bc1017-243e-80d4-be9f-fbff3852204d" class=""><mark class="highlight-red"><mark class="highlight-red_background"><strong>TEMA 6 - VIABILIDAD EMPRESARIAL</strong></mark></mark></h2><ol type="1" id="19bc1017-243e-8048-8661-dd9031063f42" class="numbered-list" start="1"><li><mark class="highlight-blue"><strong>¿Qué es un plan financiero?</strong></mark><p id="19bc1017-243e-8040-911e-c27083992cb5" class=""><strong>a) Documento que define cómo se usarán los recursos monetarios de la empresa ✅</strong></p><p id="19bc1017-243e-80a7-9ba2-f1030850b08b" class="">b) Estrategia para conseguir clientes</p><p id="19bc1017-243e-80c6-a3b5-f8e0d8fc7a7b" class="">c) Plan de ventas anuales</p><p id="19bc1017-243e-80e7-a704-df2c8924d777" class="">d) Documento que solo usan grandes empresas</p><p id="19bc1017-243e-8076-8ee1-d585645b4f8e" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8070-ba92-f1e70e986cc3" class="numbered-list" start="2"><li><mark class="highlight-blue"><strong>¿Qué mide la viabilidad económica?</strong></mark><p id="19bc1017-243e-8092-b22a-cce8252658a3" class=""><strong>a) Si la empresa es rentable ✅</strong></p><p id="19bc1017-243e-80e0-9006-c23b15132052" class="">b) Si los empleados están satisfechos</p><p id="19bc1017-243e-8011-b9d1-e88c7777f7c8" class="">c) El impacto ambiental</p><p id="19bc1017-243e-8031-93cf-cb78731f22ab" class="">d) La calidad del producto</p><p id="19bc1017-243e-8081-bb1b-c15e0bb6be42" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8015-8ef2-c80046fa9553" class="numbered-list" start="3"><li><mark class="highlight-blue"><strong>¿Qué es el umbral de rentabilidad?</strong></mark><p id="19bc1017-243e-80d5-b361-c5125d144226" class="">a) El precio de un producto</p><p id="19bc1017-243e-8082-bcb6-d51e1862fbd4" class=""><strong>b) El número mínimo de ventas para cubrir los costes ✅</strong></p><p id="19bc1017-243e-807b-b7cb-ca395f4045d0" class="">c) El margen de beneficio</p><p id="19bc1017-243e-80aa-8673-feb0dda716c6" class="">d) La tasa de impuestos</p><p id="19bc1017-243e-8042-984c-c150da738829" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-801e-9ca8-da04f3038f11" class="numbered-list" start="4"><li><mark class="highlight-blue"><strong>¿Cuál de los siguientes ratios mide la liquidez de la empresa?</strong></mark><p id="19bc1017-243e-80d5-a5d0-c3c946cfe929" class="">a) Rentabilidad sobre ventas</p><p id="19bc1017-243e-8063-acc4-d0837720c53d" class=""><strong>b) Cash flow ✅</strong></p><p id="19bc1017-243e-80db-b316-f377ff9bdd27" class="">c) Índice de endeudamiento</p><p id="19bc1017-243e-8053-811b-c34ef6bb33af" class="">d) Tasa de conversión</p><p id="19bc1017-243e-80a7-8392-d93a365e19a0" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80da-9815-ff05517b7df2" class="numbered-list" start="5"><li><mark class="highlight-blue"><strong>¿Qué es el fondo de maniobra?</strong></mark><p id="19bc1017-243e-807f-aa04-cbfdcb8d89de" class="">a) Un plan de inversión</p><p id="19bc1017-243e-80c8-b4d2-f1c99a9b5ff7" class=""><strong>b) La diferencia entre el activo y el pasivo a corto plazo ✅</strong></p><p id="19bc1017-243e-80cb-a1fc-e7db5a4e6761" class="">c) El beneficio total de una empresa</p><p id="19bc1017-243e-800a-9703-f11954169e04" class="">d) La deuda de la empresa</p><p id="19bc1017-243e-805c-ba41-c495e714af8c" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80e3-822d-e2e4e5f48bf2" class="numbered-list" start="6"><li><mark class="highlight-blue"><strong>¿Qué significa que una empresa esté en quiebra?</strong></mark><p id="19bc1017-243e-80f9-917c-f2ca5a4f7810" class=""><strong>a) No puede pagar sus deudas y su patrimonio es insuficiente ✅</strong></p><p id="19bc1017-243e-803c-a2a5-cc7da5ea2373" class="">b) Tiene una gran cantidad de clientes</p><p id="19bc1017-243e-802d-abdb-cc81cdff5043" class="">c) Tiene muchas deudas a corto plazo</p><p id="19bc1017-243e-801e-b4b2-dd2d6d504412" class="">d) Está en proceso de expansión</p><p id="19bc1017-243e-80e8-8248-ecfaca45b24b" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8097-a8e4-c5a0e2129dc5" class="numbered-list" start="7"><li><mark class="highlight-blue"><strong>¿Qué es un concurso de acreedores?</strong></mark><p id="19bc1017-243e-8037-9d26-df0066a5b046" class=""><strong>a) Un proceso legal cuando una empresa es insolvente ✅</strong></p><p id="19bc1017-243e-8020-88ff-dc831c273d43" class="">b) Un sistema de inversión</p><p id="19bc1017-243e-80e8-885e-eb266ea67d17" class="">c) Una ayuda del gobierno</p><p id="19bc1017-243e-80b2-9246-f5c74d1e7e8f" class="">d) Un método de publicidad</p><p id="19bc1017-243e-80e3-a5ef-cea71e0799b1" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8046-b1c0-ceaaeb3447b6" class="numbered-list" start="8"><li><mark class="highlight-blue"><strong>¿Qué indica la viabilidad comercial?</strong></mark><p id="19bc1017-243e-800d-b58f-f5276fb45fb5" class=""><strong>a) Si hay mercado para el producto o servicio ✅</strong></p><p id="19bc1017-243e-8079-8e2f-cc72ce0b16ef" class="">b) Si la empresa tiene muchos empleados</p><p id="19bc1017-243e-809f-a908-ef1850e31d0f" class="">c) El nivel de endeudamiento</p><p id="19bc1017-243e-8070-b259-cdbe019118dc" class="">d) La eficiencia de producción</p><p id="19bc1017-243e-8012-8da6-de6195f29331" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-8022-abea-db6c0366b3de" class="numbered-list" start="9"><li><mark class="highlight-blue"><strong>¿Qué indica la viabilidad técnica?</strong></mark><p id="19bc1017-243e-80a1-b28a-ee38a5ea9679" class=""><strong>a) Si la empresa tiene los medios para operar ✅</strong></p><p id="19bc1017-243e-80d9-a84f-e274b9dd9d12" class="">b) La rentabilidad esperada</p><p id="19bc1017-243e-80a8-b65e-d546a205e38d" class="">c) La cantidad de empleados</p><p id="19bc1017-243e-80b2-b1af-d7a8a89c32cb" class="">d) El impacto ambiental</p><p id="19bc1017-243e-8060-a5e4-c46486c0a1ca" class="">
+</p></li></ol><ol type="1" id="19bc1017-243e-80eb-8192-eb771695009e" class="numbered-list" start="10"><li><mark class="highlight-blue"><strong>¿Qué es la suspensión de pagos?</strong></mark><p id="19bc1017-243e-8003-b831-cff3ed6b15ec" class=""><strong>a) Falta de liquidez temporal, aunque la empresa tenga patrimonio suficiente ✅</strong></p><p id="19bc1017-243e-8004-81c0-eba4910977ba" class="">b) Una estrategia fiscal</p><p id="19bc1017-243e-800c-965f-e25d0177ec35" class="">c) Un plan de marketing</p><p id="19bc1017-243e-80ef-9e7f-f627921ff82a" class="">d) Un préstamo bancario</p></li></ol><p id="19bc1017-243e-8041-8822-e3c0da9e889a" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

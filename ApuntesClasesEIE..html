@@ -1,0 +1,719 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Apuntes Clases EIE</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="177c1017-243e-8035-9e97-c1f1abbf87b3" class="page serif"><header><h1 class="page-title">Apuntes Clases EIE</h1><p class="page-description"></p></header><div class="page-body"><hr id="177c1017-243e-803c-8088-c7bad74e9b48"/><div id="19ac1017-243e-809e-ad74-e31fae974017" class="column-list"><div id="19ac1017-243e-8085-8c93-cd28ff694395" style="width:81.25%" class="column"></div><div id="19ac1017-243e-8015-b12b-d83995af59b8" style="width:18.75%" class="column"><p id="19ac1017-243e-8047-9fb4-f171c51ea854" class="">10-01-2025</p></div></div><h1 id="177c1017-243e-80c7-8b58-d82d19b0a3f5" class=""><mark class="highlight-red"><mark class="highlight-red_background">Tema 4. Marketing </mark></mark></h1><p id="177c1017-243e-80a9-9ff4-fe72e886bfa4" class="">
+</p><ol type="1" id="177c1017-243e-8059-afe8-c19cabad2af0" class="numbered-list" start="1"><li><mark class="highlight-blue">CONCEPTO DE MARKETING</mark></li></ol><p id="177c1017-243e-8045-b886-e64c0375969e" class=""><strong>Definición de Marketing</strong>: Es un proceso mediante el cual las empresas buscan optimizar sus objetivos corporativos identificando y satisfaciendo las necesidades del público de manera eficiente y diferenciada respecto a la competencia.</p><p id="177c1017-243e-8030-9dba-e1b4b15fe997" class="">
+</p><ol type="1" id="177c1017-243e-80ca-acbc-e4315acc1b49" class="numbered-list" start="3"><li><mark class="highlight-blue">CUIDAR LA RELACIÓN CON EL CLIENTE</mark></li></ol><p id="177c1017-243e-80d2-a6df-e229adce5868" class=""><strong>Marketing Relacional y marketing de contenidos</strong>:<div class="indented"><ol type="1" id="177c1017-243e-806a-aa70-fda6c16a0d9d" class="numbered-list" start="1"><li><strong>Marketing Relacional</strong>: Busca fidelizar la relación con el cliente a través de una comunicación permanente y bidireccional.</li></ol><ol type="1" id="177c1017-243e-8068-8530-c2839aaeb32a" class="numbered-list" start="2"><li><strong>Marketing de Contenidos</strong>: Se centra en distribuir contenido relevante para atraer la atención de clientes potenciales y fidelizarlos.</li></ol><p id="177c1017-243e-8093-bc71-c97cceee5e76" class="">
+</p></div></p><p id="177c1017-243e-809c-bcb4-f8b9a6537652" class=""><strong>SEO (Search Engine Optimization)</strong>: Es el proceso de optimización para aparecer en las primeras páginas de resultados de búsqueda en Google, lo que implica un costo por clic que puede variar significativamente.</p><p id="177c1017-243e-80ea-a0bb-d2c9221c51ec" class="">
+</p><p id="177c1017-243e-8036-89fc-fdeac2e526de" class=""><strong>Newsletter</strong>: Se refiere a los correos electrónicos que las empresas envían a sus clientes con información y ofertas, a menudo considerados spam. </p><p id="198c1017-243e-800e-b737-c9bc36083bdc" class="">
+</p><p id="177c1017-243e-80ec-85c6-e10597bd27c5" class=""><strong>Marketing de Afiliación</strong>: Influencers que promocionan productos de otras marcas a cambio de una comisión por cada venta o clic generado.</p><p id="177c1017-243e-806c-ba93-fec4f556857c" class=""><strong>Banners</strong>: Anuncios que aparecen en páginas web, dirigidos a usuarios según sus búsquedas previas.</p><p id="177c1017-243e-8058-abff-faad09ea4633" class="">
+</p><p id="177c1017-243e-8014-be8a-c02325bd4958" class=""><strong>Marketing Social y Ecológico</strong>:<div class="indented"><ol type="1" id="177c1017-243e-808d-b38b-c6f4de1a7a15" class="numbered-list" start="1"><li><strong>Marketing Social</strong>: Relacionado con la responsabilidad social corporativa y acciones que benefician a la sociedad.</li></ol><ol type="1" id="177c1017-243e-8076-87d2-de01010bfe54" class="numbered-list" start="2"><li><strong>Marketing Ecológico o marketing verde</strong>: Enfocado en la sostenibilidad y el medio ambiente.</li></ol><p id="177c1017-243e-8081-b174-c84d495557f7" class="">
+</p></div></p><ol type="1" id="177c1017-243e-808e-b216-cfda5a2c8785" class="numbered-list" start="4"><li><mark class="highlight-blue">MEJORAR EL PRODUCTO</mark></li></ol><p id="177c1017-243e-800a-abc3-c6819ef43c62" class=""><strong>Marketing Olfativo y Auditivo</strong>: Estrategias que utilizan olores y música para crear una experiencia de marca y atraer a los clientes.</p><p id="177c1017-243e-804e-8f41-d65485e5b508" class="">
+</p><ol type="1" id="177c1017-243e-808e-9494-d8c926840618" class="numbered-list" start="5"><li><mark class="highlight-blue">COOPERAR O COMPETIR CON LOS RIVALES</mark></li></ol><p id="177c1017-243e-80db-88c0-ea561f675a31" class=""><strong>Marketing de Guerrilla, radical o extreme marketing</strong>: Estrategias no convencionales para diferenciarse de la competencia, como grafitis o carteles creativos.</p><p id="177c1017-243e-8071-b64f-e5a96e917b93" class="">
+</p><p id="177c1017-243e-80dd-b4f2-e8af00fde577" class=""><strong>Co-Marketing o marketing de cooperación</strong>: Colaboración entre empresas para atraer clientes, como en centros comerciales donde varias tiendas similares se agrupan.</p><p id="177c1017-243e-80f8-a4ba-cc7ed8f4bdf9" class="">
+</p><p id="177c1017-243e-804f-b2ca-fae4a0a1103b" class=""><strong>Marketing B2B y B2C</strong>:<div class="indented"><ol type="1" id="177c1017-243e-80bd-8347-fff4d7156f03" class="numbered-list" start="1"><li><strong>B2B (Business to Business)</strong>: Empresas que venden a otras empresas.</li></ol><ol type="1" id="177c1017-243e-80a3-9605-f71f67e9cd55" class="numbered-list" start="2"><li><strong>B2C (Business to Consumer)</strong>: Empresas que venden directamente al consumidor.</li></ol></div></p><p id="177c1017-243e-8089-901b-e96fc752b542" class="">
+</p><p id="177c1017-243e-8075-9d03-dc68a6704a17" class="">
+</p><ol type="1" id="177c1017-243e-8074-a6c5-da11572c84d3" class="numbered-list" start="7"><li><mark class="highlight-blue">HERRAMIENTAS DE MARKETING</mark></li></ol><h2 id="177c1017-243e-801a-aa8b-e63a2482601f" class=""><strong>Evolución del Marketing</strong></h2><ol type="1" id="177c1017-243e-80b5-9cb9-ed4ef66f0197" class="numbered-list" start="1"><li><strong>Marketing 1.0</strong>: Se enfoca en una audiencia masiva, sin segmentación, utilizando medios tradicionales como prensa y televisión.</li></ol><ol type="1" id="177c1017-243e-80ab-a1ff-da404b34398c" class="numbered-list" start="2"><li><strong>Marketing 2.0</strong>: Se centra en la comunicación individual y la interacción con los clientes, utilizando herramientas como el emailing y el telemarketing.</li></ol><ol type="1" id="177c1017-243e-8067-9965-fc912c88fd2d" class="numbered-list" start="3"><li><strong>Marketing 3.0</strong>: Combina estrategias masivas e individuales, buscando la interactividad y la no intrusividad en la comunicación con el consumidor.</li></ol><p id="195c1017-243e-801f-81a0-f1e55189d38b" class="">
+</p><p id="177c1017-243e-80d7-b81a-c491c579e281" class="">
+</p><ol type="1" id="177c1017-243e-8021-9aca-c934e64578f9" class="numbered-list" start="8"><li><mark class="highlight-blue">GESTION DE LOS RRHH</mark></li></ol><h2 id="177c1017-243e-80da-9e51-d6f488dc24c8" class=""><strong>Gestión de Recursos Humanos</strong></h2><p id="177c1017-243e-8062-84bb-e0287b14bda1" class=""><strong>Funciones de Recursos Humanos</strong>: Seleccionar, contratar, formar y gestionar al personal de la organización, incluyendo colaboradores externos.</p><p id="195c1017-243e-803e-b6b7-faff85293f5c" class="">
+</p><hr id="177c1017-243e-8001-8ce5-dd272b68adfd"/><div id="19ac1017-243e-80b9-87cf-cb5974ef7b6a" class="column-list"><div id="19ac1017-243e-80ce-a331-c3803f116058" style="width:81.25%" class="column"><p id="19ac1017-243e-806f-bc6e-da6de528e215" class="">
+</p></div><div id="19ac1017-243e-80e9-abb4-c74e5de35bb0" style="width:18.749999999999993%" class="column"><p id="19ac1017-243e-808a-9d2c-fd11be3c6c20" class="">24-01-2025</p></div></div><h1 id="177c1017-243e-801a-95c9-c509f82ea202" class=""><mark class="highlight-red"><mark class="highlight-red_background">Tema 5. Financiación</mark></mark></h1><ol type="1" id="186c1017-243e-80c0-89c5-d99e999df7b5" class="numbered-list" start="1"><li><strong>Definición de Necesidades Financieras</strong>:<ul id="186c1017-243e-80f5-b288-e951439849e6" class="bulleted-list"><li style="list-style-type:disc">Las empresas deben identificar los recursos materiales y humanos necesarios para su actividad y estimar su coste.</li></ul><ul id="186c1017-243e-80a5-b65a-e2fa50255920" class="bulleted-list"><li style="list-style-type:disc">Este proceso se conoce como el plan financiero de la empresa</li></ul><p id="195c1017-243e-800f-8494-c73177cd70ff" class="">
+</p></li></ol><ol type="1" id="186c1017-243e-8057-8eed-e0159d8e1095" class="numbered-list" start="2"><li><strong>Tipos de Financiación</strong>:<ul id="186c1017-243e-8057-93f2-d7ba589851c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Recursos Propios</strong>: Capital que no se debe devolver, incluye aportaciones de socios y beneficios generados por la empresa.</li></ul><ul id="186c1017-243e-807c-8eba-e7c1b1bf24a3" class="bulleted-list"><li style="list-style-type:disc"><strong>Recursos Ajeno</strong>: Capital que genera deuda y debe ser devuelto, utilizado para inversiones y operaciones.</li></ul><p id="195c1017-243e-80da-ae4f-cff854347a5f" class="">
+</p></li></ol><ol type="1" id="186c1017-243e-803e-8db7-c45c160e011d" class="numbered-list" start="3"><li><strong>Condiciones Económicas</strong>:<ul id="186c1017-243e-8011-91a9-ed5b8ac52237" class="bulleted-list"><li style="list-style-type:disc">En épocas de crecimiento, las empresas tienden a aumentar inversiones y buscar nuevas formas de financiación.</li></ul><ul id="186c1017-243e-807f-a9bb-fc9ce82aba9b" class="bulleted-list"><li style="list-style-type:disc">En recesiones, las empresas reducen gastos y buscan disminuir deudas.</li></ul><p id="195c1017-243e-80e6-8c2d-c0f9da043f60" class="">
+</p></li></ol><ol type="1" id="186c1017-243e-8095-9ad6-d68ad3158e44" class="numbered-list" start="4"><li><strong>Fuentes de Recursos Propios</strong>:<ul id="186c1017-243e-80f1-bd12-e862779042fe" class="bulleted-list"><li style="list-style-type:disc">Aportaciones de socios.</li></ul><ul id="186c1017-243e-8083-8227-d33b7f544c76" class="bulleted-list"><li style="list-style-type:disc">Beneficios no repartidos (reservas).</li></ul><ul id="186c1017-243e-803f-9680-d7c980dce62a" class="bulleted-list"><li style="list-style-type:disc">Entrada de nuevos socios, lo que requiere modificar los estatutos de la empresa.</li></ul><p id="195c1017-243e-805e-ac38-f6c851006a2f" class="">
+</p></li></ol><p id="186c1017-243e-8065-9c79-ddd9ef76f603" class=""><strong>Fuentes de Recursos Ajeno</strong>:<div class="indented"><ul id="186c1017-243e-80a3-baa2-cfd219316322" class="bulleted-list"><li style="list-style-type:disc"><strong>Préstamos</strong>: Cantidad fija que se debe devolver con intereses.</li></ul><ul id="186c1017-243e-803c-bde0-cec0dfd03189" class="bulleted-list"><li style="list-style-type:disc"><strong>Créditos</strong>: Línea de crédito que permite retirar dinero hasta un límite, solo se pagan intereses sobre el monto utilizado.</li></ul><ul id="186c1017-243e-80ff-8601-f439d70aaada" class="bulleted-list"><li style="list-style-type:disc"><strong>Microcréditos</strong>: Pequeños préstamos a corto plazo, generalmente con altos intereses</li></ul></div></p><p id="186c1017-243e-800d-a7de-f364e2701447" class="">
+</p><ol type="1" id="186c1017-243e-805d-abbc-e42491c48ace" class="numbered-list" start="6"><li><strong>Otras Formas de Financiación</strong>:<ul id="186c1017-243e-806c-8ee9-dc764697554e" class="bulleted-list"><li style="list-style-type:disc"><strong>Crowdfunding</strong>: Financiación colectiva a través de plataformas donde las personas pueden aportar dinero a proyectos a cambio de beneficios o participación.</li></ul><ul id="186c1017-243e-80d8-825d-e0470871000b" class="bulleted-list"><li style="list-style-type:disc"><strong>Business Angels</strong>: Inversores que aportan capital y experiencia a startups a cambio de participación en la empresa.</li></ul><ul id="186c1017-243e-8013-91d9-f238067b13b7" class="bulleted-list"><li style="list-style-type:disc"><strong>Subvenciones</strong>: Ayudas del Estado que pueden ser a fondo perdido o con condiciones de devolución a bajo interés.</li></ul><p id="195c1017-243e-80f4-b7a5-c363d4618912" class="">
+</p></li></ol><ol type="1" id="186c1017-243e-80f0-a892-fb04ee9f21d1" class="numbered-list" start="7"><li><strong>Alquiler y Leasing</strong>:<ul id="186c1017-243e-8050-81ad-c01cb5edf54f" class="bulleted-list"><li style="list-style-type:disc"><strong>Renting</strong>: Alquiler sin opción a compra.</li></ul><ul id="186c1017-243e-8028-b28e-fc4ff58c5acc" class="bulleted-list"><li style="list-style-type:disc"><strong>Leasing</strong>: Alquiler con opción a compra, donde parte de los pagos se descuenta del precio final.</li></ul><p id="195c1017-243e-80b9-aac7-e3fe61f395cd" class="">
+</p></li></ol><ol type="1" id="186c1017-243e-8031-b0d6-ec934eaded81" class="numbered-list" start="8"><li><strong>Reducción de Costes</strong>:<ul id="186c1017-243e-80ae-af9b-dee45669b3d4" class="bulleted-list"><li style="list-style-type:disc">Estrategias para reducir gastos y aumentar beneficios, que pueden ser reinvertidos en la empresa.</li></ul></li></ol><p id="177c1017-243e-80e9-a63c-e43c2868c5d2" class="">
+</p><hr id="177c1017-243e-8024-928c-ec7f3ac0da53"/><div id="19ac1017-243e-8088-9f7e-fb3320dc5d89" class="column-list"><div id="19ac1017-243e-80d9-97de-ea28f10a7bd7" style="width:81.25%" class="column"><p id="19ac1017-243e-80f4-ace4-d93efa343f4f" class="">
+</p></div><div id="19ac1017-243e-80b4-88a6-e248187f6bba" style="width:18.750000000000007%" class="column"><p id="19ac1017-243e-8014-a3b7-cf52302def6f" class="">10-02-2025</p></div></div><h1 id="195c1017-243e-80a0-971c-ed407c4a8bd9" class=""><mark class="highlight-red"><mark class="highlight-red_background">Tema 6. Viabilidad Empresarial</mark></mark></h1><h3 id="198c1017-243e-8062-a95b-dbc9f0b25686" class=""><strong>1. Plan Financiero</strong></h3><ul id="198c1017-243e-806d-bc89-f9a2246f5519" class="bulleted-list"><li style="list-style-type:disc"><strong>Definición</strong>: Un plan financiero es un estudio de las estrategias empresariales para conseguir fondos económicos, invertirlos y obtener beneficios. Incluye la proyección de cómo se usarán los recursos monetarios disponibles y cómo se obtendrán más cuando sean necesarios.</li></ul><ul id="198c1017-243e-80a0-a331-c3b592699826" class="bulleted-list"><li style="list-style-type:disc"><strong>Componentes</strong>:<ul id="198c1017-243e-80a1-801c-fd0a7380e07c" class="bulleted-list"><li style="list-style-type:circle"><strong>Plan de Tesorería</strong>: Saber cuánto dinero líquido se dispone en cada momento.</li></ul><ul id="198c1017-243e-800f-a098-f73c5b2accdf" class="bulleted-list"><li style="list-style-type:circle"><strong>Cuenta de Resultados</strong>: Ingresos menos gastos (ventas menos compras).</li></ul><ul id="198c1017-243e-80a9-8966-e2573b3378f4" class="bulleted-list"><li style="list-style-type:circle"><strong>Balance</strong>: Valor total de la empresa, incluyendo activos (lo que se tiene), pasivos (lo que se debe) y patrimonio neto (capital social).</li></ul><p id="198c1017-243e-8025-8cfe-efc66d13d3d7" class="">
+</p></li></ul><h3 id="198c1017-243e-80c6-8204-f0f928522dec" class=""><strong>2. Viabilidad de la Empresa</strong></h3><ul id="198c1017-243e-801e-89dd-fac629e28407" class="bulleted-list"><li style="list-style-type:disc"><strong>Definición</strong>: Estudio que pretende prever el éxito o fracaso de un negocio basándose en criterios como rentabilidad económica, aceptación del producto en el mercado y responsabilidad social corporativa.</li></ul><ul id="198c1017-243e-8040-a455-c8c26478fbb6" class="bulleted-list"><li style="list-style-type:disc"><strong>Tipos de Viabilidad</strong>:<ul id="198c1017-243e-8018-92d3-cca8903d734b" class="bulleted-list"><li style="list-style-type:circle"><strong>Económica</strong>: Rentabilidad del negocio.</li></ul><ul id="198c1017-243e-80f1-9ceb-e69de8ec3bd5" class="bulleted-list"><li style="list-style-type:circle"><strong>Financiera</strong>: Capacidad para obtener fondos.</li></ul><ul id="198c1017-243e-80f7-b103-eb5b490b3938" class="bulleted-list"><li style="list-style-type:circle"><strong>Comercial</strong>: Aceptación del producto en el mercado.</li></ul><ul id="198c1017-243e-808b-a203-fcafc5459405" class="bulleted-list"><li style="list-style-type:circle"><strong>Legal</strong>: Cumplimiento de normativas.</li></ul><ul id="198c1017-243e-802e-b0c1-dee44c1fd990" class="bulleted-list"><li style="list-style-type:circle"><strong>Medioambiental</strong>: Impacto ambiental.</li></ul><ul id="198c1017-243e-8082-872d-e63cc3eb524a" class="bulleted-list"><li style="list-style-type:circle"><strong>Técnica</strong>: Capacidad técnica para ejecutar el proyecto.</li></ul><p id="198c1017-243e-8036-9bd5-e73b25bb4f75" class="">
+</p></li></ul><h3 id="198c1017-243e-807d-bf06-e9d0783a338e" class=""><strong>3. Punto Muerto o Umbral de Rentabilidad</strong></h3><ul id="198c1017-243e-8044-acd5-e1ffc339c5b1" class="bulleted-list"><li style="list-style-type:disc"><strong>Definición</strong>: Nivel mínimo de ventas necesario para cubrir todos los gastos y empezar a generar beneficios.</li></ul><ul id="198c1017-243e-8035-8f91-fca6a268d7ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Cálculo</strong>:<ul id="198c1017-243e-8099-b459-d6b7c8ee19c8" class="bulleted-list"><li style="list-style-type:circle"><strong>Fórmula</strong>: Costes Fijos / (Precio Unitario - Costes Variables Unitarios).</li></ul><ul id="198c1017-243e-8090-885d-ebfbc1104544" class="bulleted-list"><li style="list-style-type:circle"><strong>Ejemplo</strong>: Si los costes fijos son 1000€, el precio unitario es 10€ y los costes variables unitarios son 5€, el punto muerto sería 1000 / (10 - 5) = 200 unidades.</li></ul></li></ul><ul id="198c1017-243e-808a-8242-d977690fd2b6" class="bulleted-list"><li style="list-style-type:disc"><strong>Aplicación</strong>: Se utiliza para determinar cuántas unidades deben venderse para empezar a obtener beneficios.</li></ul><p id="198c1017-243e-802e-8973-c7a22b9ef8ef" class="">
+</p><h3 id="198c1017-243e-80b6-ada5-c7169487670a" class=""><strong>4. Costes</strong></h3><ul id="198c1017-243e-8004-8c1b-fd90dd8ac829" class="bulleted-list"><li style="list-style-type:disc"><strong>Costes Fijos</strong>: Gastos que no varían con el nivel de producción (ejemplo: alquiler de un local).</li></ul><ul id="198c1017-243e-8053-99f5-c1e65f82f0f5" class="bulleted-list"><li style="list-style-type:disc"><strong>Costes Variables</strong>: Gastos que dependen del nivel de producción (ejemplo: materia prima).</li></ul><p id="198c1017-243e-805f-af3e-c3e522fb3ce3" class="">
+</p><h3 id="198c1017-243e-803a-b4b1-da97c612e47b" class=""><strong>5. Ratios Financieros </strong>(no centrar en este tema para el examen)</h3><ul id="198c1017-243e-8066-b2c1-e3612b804de0" class="bulleted-list"><li style="list-style-type:disc"><strong>Definición</strong>: Índices o valores numéricos que permiten analizar la situación económica y financiera de la empresa. Se calculan como un cociente entre dos variables y se expresan en porcentaje.</li></ul><ul id="198c1017-243e-8038-8ca2-cc1bf2d99d64" class="bulleted-list"><li style="list-style-type:disc"><strong>Ejemplos</strong>:<ul id="198c1017-243e-8055-87ae-f8f68b296bcb" class="bulleted-list"><li style="list-style-type:circle"><strong>Rentabilidad Económica</strong>: Beneficios / Activos Totales.</li></ul><ul id="198c1017-243e-8088-bf61-cea929d4edbe" class="bulleted-list"><li style="list-style-type:circle"><strong>Rentabilidad Financiera</strong>: Beneficios / Patrimonio Neto.</li></ul><ul id="198c1017-243e-8032-9739-fb190dcb5532" class="bulleted-list"><li style="list-style-type:circle"><strong>Ratio de Tesorería</strong>: Capacidad para cubrir deudas a corto plazo.</li></ul><ul id="198c1017-243e-8036-bc10-ced5c7951792" class="bulleted-list"><li style="list-style-type:circle"><strong>Ratio de Endeudamiento</strong>: Nivel de deuda respecto al patrimonio.</li></ul><ul id="198c1017-243e-80d1-a754-dbb743db21d6" class="bulleted-list"><li style="list-style-type:circle"><strong>Fondo de Maniobra</strong>: Capacidad para afrontar obligaciones a corto plazo.</li></ul><p id="198c1017-243e-8023-84b3-cee9439cb76c" class="">
+</p></li></ul><h3 id="198c1017-243e-8008-bee8-f9d96a7f1776" class=""><strong>6. Conceptos Legales y Financieros</strong></h3><ul id="198c1017-243e-8074-a933-c68723e359c4" class="bulleted-list"><li style="list-style-type:disc"><strong>Quiebra</strong>: Situación en la que una empresa no puede hacer frente a sus deudas. Los bienes de la empresa se reparten entre los acreedores.</li></ul><ul id="198c1017-243e-8017-b3bb-df20c275248b" class="bulleted-list"><li style="list-style-type:disc"><strong>Concurso de Acreedores</strong>: Proceso legal que se inicia cuando una empresa es insolvente. Es el paso previo a la quiebra.</li></ul><ul id="198c1017-243e-8073-a0f2-edd6abe343b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Suspensión de Pagos</strong>: Decisión de no pagar a los acreedores temporalmente.</li></ul><p id="198c1017-243e-8007-a80d-d30f0e646d1b" class="">
+</p><p id="198c1017-243e-80a7-9dde-f6a07e138340" class="">
+</p><p id="198c1017-243e-80c5-97c9-ea7fa9ca654b" class="">
+</p><p id="198c1017-243e-8097-8b5c-e78efc462017" class="">
+</p><p id="198c1017-243e-80e4-b61e-d50f337757b8" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
